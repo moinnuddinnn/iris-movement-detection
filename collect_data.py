@@ -82,7 +82,6 @@ with mp_face.FaceMesh(
         cv2.imshow("Iris Data Collection", frame_out)
         key = cv2.waitKey(1) & 0xFF
 
-        # Quit
         if key == ord('q'):
             print("\nData collection ended.")
             break
@@ -129,6 +128,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
