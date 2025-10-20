@@ -95,7 +95,6 @@ with mp_face.FaceMesh(
             ord('b'): "blink"
         }
 
-        # If pressed key is a label AND face detected, auto-record multiple frames
         if key in key_map and results.multi_face_landmarks:
             label = key_map[key]
             print(f"[+] Recording {FRAMES_PER_LABEL} frames for '{label}'...")
@@ -127,6 +126,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
