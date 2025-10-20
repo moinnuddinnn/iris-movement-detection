@@ -47,7 +47,6 @@ while True:
         predicted_class = np.argmax(prediction)
         movement_label = label_encoder.inverse_transform([predicted_class])[0]
 
-        # Draw landmarks and display prediction
         h, w, _ = frame.shape
         for idx in [468, 473]:
             x = int(face_landmarks.landmark[idx].x * w)
@@ -65,6 +64,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
