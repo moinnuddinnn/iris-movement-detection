@@ -4,10 +4,8 @@ import numpy as np
 import tensorflow as tf
 import pickle
 
-# Load the trained model
 model = tf.keras.models.load_model('models/iris_model.h5')
 
-# Load the label encoder
 with open('models/label_encoder.pkl', 'rb') as f:
     label_encoder = pickle.load(f)
 
@@ -71,4 +69,5 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
