@@ -42,7 +42,6 @@ while True:
         # Normalize and prepare input
         X = np.array([[l_x, l_y, r_x, r_y]])
 
-        # Predict movement
         prediction = model.predict(X)
         predicted_class = np.argmax(prediction)
         movement_label = label_encoder.inverse_transform([predicted_class])[0]
@@ -64,6 +63,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
