@@ -17,7 +17,6 @@ face_mesh = mp_face_mesh.FaceMesh(
     min_tracking_confidence=0.5
 )
 
-# Start capturing from the camera
 cap = cv2.VideoCapture(0)
 
 print("Starting real-time iris movement detection... Press 'q' to quit.")
@@ -68,6 +67,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
