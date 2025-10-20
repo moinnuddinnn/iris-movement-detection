@@ -37,28 +37,31 @@ while True:
     h, w, _ = frame.shape
 
     if results.multi_face_landmarks:
-        for face_landmarks in results.multi_face_landmarks:
-            # Extract iris landmarks (MediaPipe indexes 468-473)
-            iris_coords = []
-            for idx in range(468, 473):
-                x = int(face_landmarks.landmark[idx].x * w)
-                y = int(face_landmarks.landmark[idx].y * h)
-                iris_coords.append([x, y])
-                cv2.circle(frame, (x, y), 2, (0, 255, 0), -1)
+    for face_landmarks in results.multi_face_landmarks:
+        # Get left and right iris centers (landmarks 468 and 473)
+        l_x = face_landmarks.landmark[468].x
+        l_y = face_landmarks.landmark[468].y
+        r_x = face_landmarks.landmark[473].x
+        r_y = face_landmarks.landmark[473].y
 
-            if len(iris_coords) == 5:
-                iris_array = np.array(iris_coords).flatten()
-                iris_array = iris_array / np.array([w, h] * (len(iris_coords)))  # Normalize
-                iris_array = np.expand_dims(iris_array, axis=0)
+        # Normalize and prepare input
+        X = np.array([[l_x, l_y, r_x, r_y]])
 
-                # Predict movement
-                prediction = model.predict(iris_array)
-                predicted_class = np.argmax(prediction)
-                movement_label = label_encoder.inverse_transform([predicted_class])[0]
+        # Predict movement
+        prediction = model.predict(X)
+        predicted_class = np.argmax(prediction)
+        movement_label = label_encoder.inverse_transform([predicted_class])[0]
 
-                # Display prediction
-                cv2.putText(frame, f'Movement: {movement_label}', (30, 50),
-                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+        # Draw landmarks and display prediction
+        h, w, _ = frame.shape
+        for idx in [468, 473]:
+            x = int(face_landmarks.landmark[idx].x * w)
+            y = int(face_landmarks.landmark[idx].y * h)
+            cv2.circle(frame, (x, y), 2, (0, 255, 0), -1)
+
+        cv2.putText(frame, f'Movement: {movement_label}', (30, 50),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2)
+
 
     cv2.imshow('Iris Movement Detection', frame)
 
@@ -68,3 +71,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
