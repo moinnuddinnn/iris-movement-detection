@@ -9,7 +9,6 @@ model = tf.keras.models.load_model('models/iris_model.h5')
 with open('models/label_encoder.pkl', 'rb') as f:
     label_encoder = pickle.load(f)
 
-# Initialize MediaPipe FaceMesh
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(
     max_num_faces=1,
@@ -69,5 +68,6 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
