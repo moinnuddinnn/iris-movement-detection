@@ -4,8 +4,7 @@ import numpy as np
 import tensorflow as tf
 import os
 
-# === CONFIG ===
-MODEL_PATH = "models/iris_model.h5"  # Path to your trained model
+MODEL_PATH = "models/iris_model.h5"
 
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model not found at {MODEL_PATH}. Train the model first!")
@@ -81,3 +80,4 @@ with mp_face.FaceMesh(
 
 cap.release()
 cv2.destroyAllWindows()
+
