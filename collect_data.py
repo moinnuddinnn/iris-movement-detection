@@ -79,7 +79,6 @@ with mp_face.FaceMesh(
             cv2.putText(frame_out, "Press key for label (l/r/u/d/c/b)", (20, 40),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
 
-        # Show frame
         cv2.imshow("Iris Data Collection", frame_out)
         key = cv2.waitKey(1) & 0xFF
 
@@ -130,6 +129,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
