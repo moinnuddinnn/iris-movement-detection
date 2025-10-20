@@ -73,7 +73,6 @@ with mp_face.FaceMesh(
             r_norm = ((right_iris_px[0] - x_min) / (x_max - x_min + 1e-6),
                       (right_iris_px[1] - y_min) / (y_max - y_min + 1e-6))
 
-            # Draw visualization
             cv2.circle(frame_out, tuple(left_iris_px.astype(int)), 3, (0,255,0), -1)
             cv2.circle(frame_out, tuple(right_iris_px.astype(int)), 3, (0,255,0), -1)
             cv2.rectangle(frame_out, (int(x_min), int(y_min)), (int(x_max), int(y_max)), (255,0,0), 1)
@@ -131,6 +130,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
