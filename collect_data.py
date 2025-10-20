@@ -68,7 +68,6 @@ with mp_face.FaceMesh(
             x_min, x_max = min(xs), max(xs)
             y_min, y_max = min(ys), max(ys)
 
-            # Normalized iris positions
             l_norm = ((left_iris_px[0] - x_min) / (x_max - x_min + 1e-6),
                       (left_iris_px[1] - y_min) / (y_max - y_min + 1e-6))
             r_norm = ((right_iris_px[0] - x_min) / (x_max - x_min + 1e-6),
@@ -132,6 +131,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
