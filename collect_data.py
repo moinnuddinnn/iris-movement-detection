@@ -12,7 +12,6 @@ DELAY_BETWEEN_FRAMES = 0.03
 
 os.makedirs(DATA_DIR, exist_ok=True)
 
-# If file doesn't exist, write headers
 if not os.path.exists(OUT_FILE):
     with open(OUT_FILE, "w", newline="") as f:
         writer = csv.writer(f)
@@ -58,7 +57,6 @@ with mp_face.FaceMesh(
         if results.multi_face_landmarks:
             landmarks = results.multi_face_landmarks[0].landmark
 
-            # Iris landmarks
             left_iris = landmarks[468]
             right_iris = landmarks[473]
             left_iris_px = np.array([left_iris.x * w, left_iris.y * h])
@@ -135,6 +133,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
