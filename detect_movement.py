@@ -34,7 +34,6 @@ while True:
 
     if results.multi_face_landmarks:
     for face_landmarks in results.multi_face_landmarks:
-        # Get left and right iris centers (landmarks 468 and 473)
         l_x = face_landmarks.landmark[468].x
         l_y = face_landmarks.landmark[468].y
         r_x = face_landmarks.landmark[473].x
@@ -67,6 +66,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
