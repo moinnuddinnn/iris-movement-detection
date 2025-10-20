@@ -62,7 +62,6 @@ with mp_face.FaceMesh(
             left_iris_px = np.array([left_iris.x * w, left_iris.y * h])
             right_iris_px = np.array([right_iris.x * w, right_iris.y * h])
 
-            # Eye bounding box
             eye_indices = [33, 133, 145, 153, 362, 263]
             xs = [landmarks[i].x * w for i in eye_indices]
             ys = [landmarks[i].y * h for i in eye_indices]
@@ -133,6 +132,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
