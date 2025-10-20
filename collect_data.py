@@ -86,7 +86,6 @@ with mp_face.FaceMesh(
             print("\nData collection ended.")
             break
 
-        # Label keys
         key_map = {
             ord('l'): "left",
             ord('r'): "right",
@@ -128,6 +127,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
