@@ -9,10 +9,8 @@ MODEL_PATH = "models/iris_model.h5"
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model not found at {MODEL_PATH}. Train the model first!")
 
-# Load trained TensorFlow model
 model = tf.keras.models.load_model(MODEL_PATH)
 
-# Define label mapping (must match your training labels)
 labels = ["left", "right", "up", "down", "center", "blink"]
 
 mp_face = mp.solutions.face_mesh
@@ -80,4 +78,5 @@ with mp_face.FaceMesh(
 
 cap.release()
 cv2.destroyAllWindows()
+
 
