@@ -8,9 +8,8 @@ import os
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "iris_dataset.csv")
 FRAMES_PER_LABEL = 30
-DELAY_BETWEEN_FRAMES = 0.03  # Seconds between frames
+DELAY_BETWEEN_FRAMES = 0.03
 
-# Create data folder if missing
 os.makedirs(DATA_DIR, exist_ok=True)
 
 # If file doesn't exist, write headers
@@ -136,5 +135,6 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
