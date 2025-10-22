@@ -1,2 +1,2 @@
 # IRIS MOVEMENT DETECTION MODEL
-An Iris movement detection system using TensorFlow, OpenCV and MediaPipe.
+an iris movement detection system using tensorflow, opencv and mediapipe.
