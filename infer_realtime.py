@@ -5,7 +5,7 @@ import tensorflow as tf
 import os
 
 MODEL_PATH = "models/iris_model.h5"
-
+#hi
 if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(f"Model not found at {MODEL_PATH}. Train the model first!")
 
@@ -71,6 +71,7 @@ with mp_face.FaceMesh(
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
