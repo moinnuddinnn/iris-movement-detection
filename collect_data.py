@@ -4,7 +4,7 @@ import numpy as np
 import csv
 import time
 import os    #
-#  #
+#  #                                          #
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "iris_dataset.csv")
 FRAMES_PER_LABEL = 30
@@ -126,6 +126,7 @@ with mp_face.FaceMesh(
                         writer.writerow([timestamp, l_norm[0], l_norm[1], r_norm[0], r_norm[1], label])
                 time.sleep(DELAY_BETWEEN_FRAMES)
             print(f"[+] Done recording '{label}'!")
+
 
 
 
