@@ -3,7 +3,7 @@ import mediapipe as mp
 import numpy as np
 import tensorflow as tf
 import pickle
-##
+
 model = tf.keras.models.load_model('models/iris_model.h5')
 
 with open('models/label_encoder.pkl', 'rb') as f:
@@ -63,6 +63,7 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
 
 
 
