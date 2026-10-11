@@ -4,7 +4,7 @@ import numpy as np
 import csv
 import time
 import os    
-                             
+       #                      
 DATA_DIR = "data"
 OUT_FILE = os.path.join(DATA_DIR, "iris_dataset.csv")
 FRAMES_PER_LABEL = 30
